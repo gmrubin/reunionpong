@@ -1,0 +1,78 @@
+!!! 5
+%html(lang="en")
+  %head
+    %meta(charset="utf-8")
+    %title= content_for?(:title) ? yield(:title) : "ReunionPong"
+    %meta(name="description" content="")
+    %meta(name="author" content="")
+    = csrf_meta_tags
+    = javascript_include_tag "application"
+    = stylesheet_link_tag "application", :media => "all"
+    = yield(:head)
+
+    :css
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+
+    /[if lt IE 9]
+      %script(src="http://html5shiv.googlecode.com/svn/trunk/html5.js")
+
+    %link(rel="shortcut icon" href="images/favicon.ico")
+    %link(rel="apple-touch-icon" href="images/apple-touch-icon.png")
+    %link(rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png")
+    %link(rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png")
+
+  %body
+
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          = link_to "ReunionPong", :root, class: "brand"
+          %ul.nav.pull-right
+            - if user_signed_in?
+              %ul.nav.nav-pills
+                %li#menu1.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#menu1"}
+                    My Account
+                    %b.caret
+                  %ul.dropdown-menu
+                    %li
+                      = link_to deals_path  do
+                        %i{class: 'icon-folder-open'}
+                        %span
+                          My Deals
+                    %li
+                      = link_to users_path  do
+                        %i{class: 'icon-wrench'}
+                        %span
+                          Settings
+                    %li
+                      = link_to destroy_user_session_path, :method => :delete do
+                        %i{class: 'icon-off'}
+                        %span
+                          Log Out
+            - else
+              %li.nav-item.main-link
+                = link_to "Log In", new_user_session_path
+
+    .container
+      - flash.each do |name, msg|
+        = content_tag :div, msg.html_safe, :class =>"#{name}", :id => "flash_#{name}"
+
+    .content-page.container
+      .row
+        .span12
+          = yield
+
+    .container
+      %footer{role: "contentinfo"}
+        %p
+          ReunionPong Copyright &copy; 2012. All Rights Reserved.
+
+    = yield :body_end
