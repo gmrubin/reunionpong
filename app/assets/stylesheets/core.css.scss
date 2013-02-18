@@ -1,0 +1,21 @@
+@import 'bootstrap';
+
+/* ALERTS ===========================================*/
+.alert p.error_notification {
+  margin-bottom: 0;
+}
+
+#flash_notice, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px 0;
+  text-align: center;
+  background-color: #f7f7f7;
+  border: solid 1px black;
+}
+#flash_notice {
+  color: #5bc0de;
+}
+
+#flash_alert {
+  color: #ee5f5b;
+}
