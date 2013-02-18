@@ -42,16 +42,16 @@
                     My Account
                     %b.caret
                   %ul.dropdown-menu
-                    %li
-                      = link_to deals_path  do
-                        %i{class: 'icon-folder-open'}
-                        %span
-                          My Deals
-                    %li
-                      = link_to users_path  do
-                        %i{class: 'icon-wrench'}
-                        %span
-                          Settings
+                    -# %li
+                      -# = link_to games_path  do
+                        -# %i{class: 'icon-folder-open'}
+                        -# %span
+                          -# My Games
+                    -# %li
+                      -# = link_to users_path  do
+                        -# %i{class: 'icon-wrench'}
+                        -# %span
+                          -# Settings
                     %li
                       = link_to destroy_user_session_path, :method => :delete do
                         %i{class: 'icon-off'}
@@ -73,6 +73,6 @@
     .container
       %footer{role: "contentinfo"}
         %p
-          ReunionPong Copyright &copy; 2012. All Rights Reserved.
+          ReunionPong Copyright &copy; 2013. All Rights Reserved.
 
     = yield :body_end
