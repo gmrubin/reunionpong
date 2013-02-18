@@ -46,7 +46,7 @@ Reunionpong::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  # config.assets.precompile += %w( search.js )
+  # config.assets.precompile +=
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
@@ -62,7 +62,7 @@ Reunionpong::Application.configure do
   config.active_support.deprecation = :notify
 
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'reunionpong.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'reunionpong-staging.herokuapp.com' }
   # Setup for production - deliveries, no errors raised
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
@@ -75,10 +75,12 @@ Reunionpong::Application.configure do
     :address        => ENV['MAILGUN_SMTP_SERVER'],
     :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
     :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => 'reunionpong.herokuapp.com',
+    :domain         => 'reunionpong-staging.herokuapp.com',
     :authentication => :plain,
   }
   ActionMailer::Base.delivery_method = :smtp
   # ^^ ADDED FOR MAILGUN ^^
 
+
 end
+
