@@ -14,6 +14,7 @@ gem 'json'
 gem 'kumade'
 gem 'pry'
 gem 'rails_admin'
+gem 'rolify'
 gem 'simple_form'
 gem 'thin'
 
