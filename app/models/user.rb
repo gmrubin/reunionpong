@@ -8,24 +8,21 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :handle
   # attr_accessible :title, :body
 
   before_validation :whitelisted?
-  before_validation :validate_one_user_per_team
+
+  validates :name, presence: true
 
   def on_team?
     !self.team.blank?
   end
 
-  def validate_one_user_per_team
-    errors.add(:team, "already on a team") if self.on_team?
-  end
-
   private
     def whitelisted?
       unless Whitelist.exists?(:email=>email)
-        errors.add :email, " is not on our list. If you think this is an error please email info@reunionpong.com"
+        errors.add :email, " is not on our list. If you think this is an error please email reunionpong@gmail.com"
       end
     end
 end
