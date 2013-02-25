@@ -3,5 +3,8 @@ Reunionpong::Application.routes.draw do
 
   devise_for :users
 
+
+  resources :teams
+
   root :to => 'public#index'
 end

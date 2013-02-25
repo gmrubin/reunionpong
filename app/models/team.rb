@@ -10,4 +10,15 @@ class Team < ActiveRecord::Base
   def validate_pair
     errors.add(:team, "too many users") if self.users.count >= 2
   end
+
+  def add_user!(user)
+    self.users.push(user) unless user.on_team?
+    errors.add(:team, "already on a team")
+    self
+  end
+
+  def remove_user!(user)
+    self.users.delete(user)
+  end
+
 end

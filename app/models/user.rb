@@ -12,6 +12,15 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   before_validation :whitelisted?
+  before_validation :validate_one_user_per_team
+
+  def on_team?
+    !self.team.blank?
+  end
+
+  def validate_one_user_per_team
+    errors.add(:team, "already on a team") if self.on_team?
+  end
 
   private
     def whitelisted?
