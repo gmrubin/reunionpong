@@ -41,6 +41,14 @@ RailsAdmin.config do |config|
 
   ################  Model configuration  ################
 
+  config.model Team do
+    edit do
+      field :users do
+        orderable true
+      end
+    end
+  end
+
   # Each model configuration can alternatively:
   #   - stay here in a `config.model 'ModelName' do ... end` block
   #   - go in the model definition file in a `rails_admin do ... end` block
