@@ -16,6 +16,7 @@ gem 'pry'
 gem 'rails_admin'
 gem 'rolify'
 gem 'simple_form'
+gem 'taps'
 gem 'thin'
 
 group :assets do
