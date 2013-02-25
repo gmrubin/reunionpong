@@ -1,0 +1,40 @@
+.container-fluid
+  .row-fluid
+    .span3
+      .well.sidebar-nav
+        %ul.nav.nav-list
+          %li.nav-header
+            Teams
+            - @teams.each do |t|
+              %li
+              = link_to t.name, team_path(t)
+    .span9
+      .row-fluid
+        .span8
+          .hero-unit
+            %div
+              %h2
+                Hey Xiao, welcome to ReunionPong
+              %h1
+                %span{:style => "font-size: 13px; line-height: 1.6em;"}
+                  This ispong
+          %div
+            %h2
+              Discussion area
+            %ul
+              %li
+                You are coo;l
+              %li
+                this team rocks
+        .span4
+          %div
+            %h2
+              News
+            %ul
+              %li
+                NYC tournament schedule for date
+              %li
+                BOS scheduled for blah
+              %li
+                DC
+      %hr/
