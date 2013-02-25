@@ -34,19 +34,22 @@
       .navbar-inner
         .container
           = link_to "ReunionPong", :root, class: "brand"
-          %ul.nav.pull-right
-            - if user_signed_in?
+          - if user_signed_in?
+            %ul.nav.nav-list
+              %li.nav-header
+                = link_to "My Team", teams_path
+            %ul.nav.pull-right
               %ul.nav.nav-pills
                 %li#menu1.dropdown
                   %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#menu1"}
                     My Account
                     %b.caret
                   %ul.dropdown-menu
-                    -# %li
-                      -# = link_to games_path  do
-                        -# %i{class: 'icon-folder-open'}
-                        -# %span
-                          -# My Games
+                    %li
+                      = link_to teams_path  do
+                        %i{class: 'icon-home'}
+                        %span
+                          My Team
                     -# %li
                       -# = link_to users_path  do
                         -# %i{class: 'icon-wrench'}
@@ -58,8 +61,10 @@
                         %span
                           Log Out
             - else
-              %li.nav-item.main-link
-                = link_to "Log In", new_user_session_path
+              %ul.nav.pull-right
+                %ul.nav.nav-pills
+                  %li.nav-item.main-link
+                    = link_to "Sign In", new_user_session_path
 
     .container
       - flash.each do |name, msg|

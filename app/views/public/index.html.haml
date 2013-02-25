@@ -1,4 +1,16 @@
-.hero-unit.span10{:style => "height: 140px"}
-  %h1 This will be our homepage
+.hero-unit.span10{:style => "height: 300px"}
+  %h1 D'08 5th Year Reunion
+  %h1 Pong Tourney
+  %br
+  %h2 Show off what 5 years of alumniship has done to your pong game.
+  %br
+  %h4 Register here to create or join a team.
+  %h4 Brakets coming soon
+  %h4 Cities participatin thus far: NYC, San Francisco
 
-  coming soon
+  %br
+  %h3 Final rounds to be played at reunion this June!
+
+  -# %button.btn.btn-primary{:type => "submit"} Sign Up
+  = link_to "Sign Up", new_user_registration_path, {:class=>'btn btn-primary'}
+

@@ -14,27 +14,25 @@
           .hero-unit
             %div
               %h2
-                Hey Xiao, welcome to ReunionPong
+                = "Hey, #{current_user.name} welcome to ReunionPong"
               %h1
                 %span{:style => "font-size: 13px; line-height: 1.6em;"}
-                  This ispong
           %div
             %h2
               Discussion area
             %ul
               %li
-                You are coo;l
-              %li
-                this team rocks
+                We're still working on this
         .span4
           %div
             %h2
               News
             %ul
               %li
-                NYC tournament schedule for date
+                NYC tournament scheduled for April 13th at Noon. Location (Manhattan) TBA.
               %li
-                BOS scheduled for blah
+                SF tournament is in the works
               %li
-                DC
+                If you want your city to participate email
+                = link_to("reunionpong@gmail.com", "mailto:reunionpong@gmail.com")
       %hr/
