@@ -18,6 +18,7 @@
 .DS_Store
 *Procfile.dev
 *.env
+*.dat
 
 # Ignore application configuration
 /config/application.yml
