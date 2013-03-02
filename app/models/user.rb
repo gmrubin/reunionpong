@@ -9,9 +9,8 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :handle
-  # attr_accessible :title, :body
 
-  before_validation :whitelisted?
+  before_create :whitelisted?
 
   validates :name, presence: true
 
