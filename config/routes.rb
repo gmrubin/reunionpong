@@ -4,7 +4,12 @@ Reunionpong::Application.routes.draw do
   devise_for :users
 
 
-  resources :teams
+  resources :teams do
+    member do
+      get 'join'
+      get 'leave'
+    end
+  end
 
   root :to => 'public#index'
 end
