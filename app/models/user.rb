@@ -18,6 +18,12 @@ class User < ActiveRecord::Base
     !self.team.blank?
   end
 
+  def partner
+    users = self.team.users
+    users = users.delete_if {|u| u == self }
+    users.first
+  end
+
   private
     def whitelisted?
       unless Whitelist.exists?(:email=>email)
