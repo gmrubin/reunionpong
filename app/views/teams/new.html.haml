@@ -1,0 +1,5 @@
+= simple_form_for @team do |f|
+  = f.input :city, collection: ['NYC', 'San Fran', 'Boston', 'DC', 'Other']
+  = f.input :name
+  = f.association :users, label: "Select Partner (if not registered leave blank)", :collection => User.where('id != ?', current_user.id), label_method: :name, value_method: :id, include_blank: false
+  = f.submit

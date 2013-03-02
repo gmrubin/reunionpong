@@ -1,5 +1,5 @@
 class Team < ActiveRecord::Base
-  attr_accessible :city, :name
+  attr_accessible :city, :name, :user_ids
   has_many :users
 
   validates :name, presence: true
