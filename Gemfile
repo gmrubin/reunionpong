@@ -7,6 +7,7 @@ gem 'bootstrap-sass', '2.0.3'
 gem 'cancan'
 gem 'devise'
 gem 'figaro'
+gem 'forem', :git => "git://github.com/radar/forem.git"
 gem 'haml', '3.1.4'
 gem 'haml-rails'
 gem 'jquery-rails'
