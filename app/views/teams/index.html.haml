@@ -1,13 +1,12 @@
-.container-fluid
-  .row-fluid
-    .span3
-      .well.sidebar-nav
-        %ul.nav.nav-list
-          %li.nav-header
-            Teams
-            - @teams.each do |t|
-              %li
-              = link_to t.name, team_path(t)
+.container
+  .row
+    .well.span3{:style => 'padding: 8px 0; box-sizing: border-box;'}
+      %ul.nav.nav-list
+        %li.nav-header Teams
+        - @teams.each do |t|
+          %li.team-header{'data-team-id' => t.id}
+            -# %a=t.name
+            = link_to t.name, team_path(t)
     .span9
       .row-fluid
         .span8
