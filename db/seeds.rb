@@ -10,7 +10,7 @@ puts 'GENERATING WHITELIST'
 Whitelist.create!(email: ENV['ADMIN_EMAIL'].dup)
 
 puts 'DEFAULT USERS'
-user = User.create!(email: ENV['ADMIN_EMAIL'].dup, name: ENV['ADMIN_NAME'].dup
+user = User.create!(email: ENV['ADMIN_EMAIL'].dup, name: ENV['ADMIN_NAME'].dup,
                     password: ENV['ADMIN_PASSWORD'].dup, password_confirmation: ENV['ADMIN_PASSWORD'].dup)
 user.confirm!
 puts 'user: ' << user.email
