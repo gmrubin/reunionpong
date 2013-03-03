@@ -30,10 +30,11 @@
                 %span{:style => "font-size: 13px; line-height: 1.6em;"}
           %div
             %h2
-              Discussion area
+              = link_to "Discussion Area", forem.root_path
             %ul
-              %li
-                We're still working on this
+              - @posts.each do |post|
+                %li
+                  = post.text
         .span4
           %div
             %h2

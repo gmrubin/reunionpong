@@ -4,7 +4,7 @@ gem 'rails', '3.2.11'
 gem 'pg'
 
 gem 'bootstrap-sass', '2.0.3'
-gem 'cancan'
+gem 'cancan', '1.6.8'
 gem 'devise'
 gem 'figaro'
 gem 'forem', :git => "git://github.com/radar/forem.git"

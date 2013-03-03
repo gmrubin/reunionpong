@@ -33,11 +33,11 @@
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
-          = link_to "ReunionPong", :root, class: "brand"
+          = link_to "ReunionPong", main_app.root_path, class: "brand"
           - if user_signed_in?
             %ul.nav.nav-list
               %li.nav-header
-                = link_to "My Team", teams_path
+                = link_to "My Team", main_app.teams_path
             %ul.nav.pull-right
               %ul.nav.nav-pills
                 %li#menu1.dropdown
@@ -46,7 +46,7 @@
                     %b.caret
                   %ul.dropdown-menu
                     %li
-                      = link_to teams_path  do
+                      = link_to main_app.teams_path  do
                         %i{class: 'icon-home'}
                         %span
                           My Team
@@ -56,7 +56,7 @@
                         -# %span
                           -# Settings
                     %li
-                      = link_to destroy_user_session_path, :method => :delete do
+                      = link_to main_app.destroy_user_session_path, :method => :delete do
                         %i{class: 'icon-off'}
                         %span
                           Log Out

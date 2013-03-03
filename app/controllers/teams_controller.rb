@@ -2,6 +2,7 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.all
+    @posts = Forem::Post.last(5)
   end
 
   def show
