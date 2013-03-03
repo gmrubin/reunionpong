@@ -21,4 +21,8 @@ class Team < ActiveRecord::Base
     self.users.delete(user)
   end
 
+  def partners
+    self.users.map(&:name).join ', '
+  end
+
 end

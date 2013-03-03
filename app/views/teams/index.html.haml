@@ -4,12 +4,17 @@
       %ul.nav.nav-list
         %li.nav-header Teams
         - @teams.each do |t|
-          - if t == current_user.team
-            %li.active
-              = link_to t.name, team_path(t)
+          - if t.users.count == 2
+            %li
+              %a{:href => "#{team_path(t)}"}
+                %i.icon-lock
+                #{t.name}: (#{t.partners})
           - else
             %li
-              = link_to t.name, team_path(t)
+              %a{:href => "#{team_path(t)}"}
+                #{t.name}: #{t.partners}
+                %i.icon-plus
+                ?
     .span9
       .row-fluid
         .span8
