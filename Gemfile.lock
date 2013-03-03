@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/radar/forem-theme-base.git
+  revision: 3efec35538c33e10081f1fd243d99314f913d2d1
+  specs:
+    forem-theme-base (0.0.1)
+
+GIT
   remote: git://github.com/radar/forem.git
   revision: 80f44dc62d77a7e1f1db1ff4cf295450aceacd05
   specs:
@@ -319,6 +325,7 @@ DEPENDENCIES
   factory_girl_rails
   figaro
   forem!
+  forem-theme-base!
   growl
   guard-rspec (= 0.5.5)
   guard-spork

@@ -10,5 +10,6 @@
  *
  *= require_self
  *= require_core
+ *= require "forem/base/style"
  *= require_tree .
  */

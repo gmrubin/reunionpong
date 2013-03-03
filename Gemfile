@@ -8,6 +8,7 @@ gem 'cancan', '1.6.8'
 gem 'devise'
 gem 'figaro'
 gem 'forem', :git => "git://github.com/radar/forem.git"
+gem 'forem-theme-base', :git => "git://github.com/radar/forem-theme-base.git"
 gem 'haml', '3.1.4'
 gem 'haml-rails'
 gem 'jquery-rails'
