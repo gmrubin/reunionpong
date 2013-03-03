@@ -4,9 +4,12 @@
       %ul.nav.nav-list
         %li.nav-header Teams
         - @teams.each do |t|
-          %li.team-header{'data-team-id' => t.id}
-            -# %a=t.name
-            = link_to t.name, team_path(t)
+          - if t == current_user.team
+            %li.active
+              = link_to t.name, team_path(t)
+          - else
+            %li
+              = link_to t.name, team_path(t)
     .span9
       .row-fluid
         .span8
