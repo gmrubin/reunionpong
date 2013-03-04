@@ -1,5 +1,12 @@
 <h2>Sign up</h2>
 
+<h4>Right now ReunionPong is for '08s only so you must sign up with the email address you gave the '08 class</h4>
+You can
+<%= link_to "email us", "mailto:reunionpong@gmail.com" %>
+if you don't know what email address you used or want to use a different email
+</br>
+</br>
+
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
@@ -11,6 +18,7 @@
   </div>
 
   <div class="form-actions">
+    <%= f.input :accept, :required => true, label: "I have read and agree to #{link_to "ReunionPong's Terms of Service", "/tos"}" %>
     <%= f.button :submit, "Sign up" %>
   </div>
 <% end %>
