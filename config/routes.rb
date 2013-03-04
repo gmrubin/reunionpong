@@ -18,5 +18,7 @@ Reunionpong::Application.routes.draw do
     root :to => "teams#index"
   end
 
+  match "tos" => 'public#tos'
+
   root :to => 'public#index'
 end
