@@ -1,6 +1,6 @@
 .container
   .row
-    .well.span3{:style => 'padding: 8px 0; box-sizing: border-box;'}
+    .well.span4{:style => 'padding: 8px 0; box-sizing: border-box;'}
       %ul.nav.nav-list
         %li.nav-header Teams
         - @teams.each do |t|
@@ -15,16 +15,16 @@
                 #{t.name}: #{t.partners}
                 %i.icon-plus
                 ?
-    .span9
-      .row-fluid
-        .span8
+    .span8
+      .row
+        .span7
           .hero-unit
             %div
               %h2
                 - if current_user.on_team?
                   = "Welcome back, Team #{current_user.team.name}! We hope you and #{current_user.partner.name} are ready to battle it out in #{current_user.team.city}!"
                 - else
-                  = "Hey, #{current_user.name} looks like you are flying Han-style (solo). Join or create a team"
+                  = "Hey, #{current_user.name} looks like you are flying Han-style (solo). Find a team to join on your left or create a team"
                   =link_to("here", new_team_path(@team))
               %h1
                 %span{:style => "font-size: 13px; line-height: 1.6em;"}
@@ -34,17 +34,5 @@
             %ul
               - @posts.each do |post|
                 %li
-                  = post.text
-        .span4
-          %div
-            %h2
-              News
-            %ul
-              %li
-                NYC tournament scheduled for April 13th at Noon. Location (Manhattan) TBA.
-              %li
-                SF tournament is in the works
-              %li
-                If you want your city to participate email
-                = link_to("reunionpong@gmail.com", "mailto:reunionpong@gmail.com")
+                  = link_to "#{post.topic.to_s.upcase}: #{post.text}", "/forums/forums/#{post.forum.name.downcase}"
       %hr/

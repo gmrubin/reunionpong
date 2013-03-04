@@ -38,9 +38,10 @@
             %ul.nav.nav-list
               %li.nav-header
                 = link_to "My Team", main_app.teams_path
-            %ul.nav.nav-list
-              %li.nav-header
-                = link_to "Forum Admin", forem.admin_root_url
+            - if current_user.forem_admin?
+              %ul.nav.nav-list
+                %li.nav-header
+                  = link_to "Forum Admin", forem.admin_root_url
             %ul.nav.pull-right
               %ul.nav.nav-pills
                 %li#menu1.dropdown
@@ -82,5 +83,7 @@
       %footer{role: "contentinfo"}
         %p
           ReunionPong Copyright &copy; 2013. All Rights Reserved.
+          Email all questions or feedback to
+          = link_to("reunionpong@gmail.com", "mailto:reunionpong@gmail.com")
 
     = yield :body_end
