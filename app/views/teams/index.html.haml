@@ -1,23 +1,8 @@
 .container
   .row
-    .well.span4{:style => 'padding: 8px 0; box-sizing: border-box;'}
-      %ul.nav.nav-list
-        %li.nav-header Teams
-        - @teams.each do |t|
-          - if t.users.count == 2
-            %li
-              %a{:href => "#{team_path(t)}"}
-                %i.icon-lock
-                #{t.name}: (#{t.partners})
-          - else
-            %li
-              %a{:href => "#{team_path(t)}"}
-                #{t.name}: #{t.partners}
-                %i.icon-plus
-                ?
     .span8
       .row
-        .span7
+        .span8
           .hero-unit
             %div
               %h2
@@ -26,8 +11,8 @@
                   = link_to current_user.team.name, team_path(current_user.team)
                   ="! We hope you and #{current_user.partner.name} are ready to battle it out in #{current_user.team.city}!"
                 - else
-                  = "Hey, #{current_user.name} looks like you are flying Han-style (solo). Find a team to join on your left or create a team"
-                  =link_to("here", new_team_path(@team))
+                  = "Hey, #{current_user.name} looks like you are flying Han-style (solo). Find a team to join on the right or create a team"
+                  =link_to("here.", new_team_path(@team))
               %h1
                 %span{:style => "font-size: 13px; line-height: 1.6em;"}
           %div
@@ -38,3 +23,21 @@
                 %li
                   = link_to "#{post.topic.to_s.upcase}: #{post.text}", "/forums/forums/#{post.forum.name.downcase}"
       %hr/
+
+    .span4
+      .row
+        .well.span4{:style => 'padding: 8px 0; box-sizing: border-box;'}
+          %ul.nav.nav-list
+            %li.nav-header Teams
+            - @teams.each do |t|
+              - if t.users.count == 2
+                %li
+                  %a{:href => "#{team_path(t)}"}
+                    %i.icon-lock
+                    #{t.name}: (#{t.partners})
+              - else
+                %li
+                  %a{:href => "#{team_path(t)}"}
+                    #{t.name}: #{t.partners}
+                    %i.icon-plus
+                    ?
