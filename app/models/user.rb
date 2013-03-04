@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   belongs_to :team
   rolify
+  scope :solo, where('team_id IS NULL')
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable

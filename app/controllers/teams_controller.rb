@@ -11,6 +11,7 @@ class TeamsController < ApplicationController
 
   def new
     @team = Team.new()
+    @users = User.solo.where('id != ?', current_user.id)
   end
 
   def create
