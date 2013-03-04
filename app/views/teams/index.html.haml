@@ -22,7 +22,9 @@
             %div
               %h2
                 - if current_user.on_team?
-                  = "Welcome back, Team #{current_user.team.name}! We hope you and #{current_user.partner.name} are ready to battle it out in #{current_user.team.city}!"
+                  = "Welcome back, Team"
+                  = link_to current_user.team.name, team_path(current_user.team)
+                  ="! We hope you and #{current_user.partner.name} are ready to battle it out in #{current_user.team.city}!"
                 - else
                   = "Hey, #{current_user.name} looks like you are flying Han-style (solo). Find a team to join on your left or create a team"
                   =link_to("here", new_team_path(@team))
