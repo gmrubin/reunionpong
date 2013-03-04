@@ -9,9 +9,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :handle
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :handle, :accept
 
-  before_create :whitelisted?
+  before_validation :whitelisted?, on: :create
+
+  before_validation :accept, acceptance: true, on: :create
 
   validates :name, presence: true
 
@@ -28,7 +30,7 @@ class User < ActiveRecord::Base
   private
     def whitelisted?
       unless Whitelist.exists?(:email=>email)
-        errors.add :email, " is not on our list. If you think this is an error please email reunionpong@gmail.com"
+        errors.add :email, " is not on our list #{email}. If you think this is an error please email reunionpong@gmail.com"
       end
     end
 end
