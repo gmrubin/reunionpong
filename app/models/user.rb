@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
     !self.team.blank?
   end
 
+  def to_s
+    name
+  end
+
   def partner
     users = self.team.users
     users = users.delete_if {|u| u == self }
