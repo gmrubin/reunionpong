@@ -14,5 +14,9 @@ Reunionpong::Application.routes.draw do
     end
   end
 
+  authenticated :user do
+    root :to => "teams#index"
+  end
+
   root :to => 'public#index'
 end
