@@ -38,8 +38,8 @@ class TeamsController < ApplicationController
       redirect_to teams_path
     else
       flash[:alert] = "Not so fast, you need to leave at least one player on this team."
-    end
       redirect_to @team
+    end
   end
 
 end
