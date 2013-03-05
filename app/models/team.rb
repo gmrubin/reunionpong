@@ -6,10 +6,10 @@ class Team < ActiveRecord::Base
   validates_uniqueness_of :name, case_sensitive: false
   validates :city, presence: true
 
-  before_validation :validate_pair
+  after_validation :validate_pair
 
   def validate_pair
-    errors.add(:team, "too many users") if self.users.count >= 2
+    errors.add(:team, "too many users") if self.users.count > 2
   end
 
   def add_user!(user)
