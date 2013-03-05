@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+    :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :handle, :accept
@@ -26,15 +26,19 @@ class User < ActiveRecord::Base
   end
 
   def partner
-    users = self.team.users
-    users = users.delete_if {|u| u == self }
-    users.first
+    if self.team.blank? || self.team.users.count < 2
+      @partner = self
+    else
+      tmp = self.team.users - [self]
+      @partner = tmp.first
+    end
+    @partner
   end
 
   private
-    def whitelisted?
-      unless Whitelist.exists?(:email=>email)
-        errors.add :email, " is not on our list #{email}. If you think this is an error please email reunionpong@gmail.com"
-      end
+  def whitelisted?
+    unless Whitelist.exists?(:email=>email)
+      errors.add :email, " is not on our list #{email}. If you think this is an error please email reunionpong@gmail.com"
     end
+  end
 end
