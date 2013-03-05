@@ -16,8 +16,8 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.new(params[:team])
-    if @team.save
-      @team.add_user!(current_user)
+    @team.add_user!(current_user)
+    if @team.save and @team.users.count > 0
       flash[:notice] = "Awesome, you've got a team."
     else
       flash[:alert] = "Team already taken or some other problem. Try harder."
@@ -33,8 +33,13 @@ class TeamsController < ApplicationController
 
   def leave
     @team = Team.find(params[:id])
-    current_user.update_attribute(:team_id, nil)
-    redirect_to @team
+    if @team.users.count > 1
+      current_user.update_attribute(:team_id, nil)
+      redirect_to teams_path
+    else
+      flash[:alert] = "Not so fast, you need to leave at least one player on this team."
+    end
+      redirect_to @team
   end
 
 end
