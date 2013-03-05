@@ -35,6 +35,12 @@
         .container
           = link_to "ReunionPong", main_app.root_path, class: "brand"
           - if user_signed_in?
+            %ul.nav.nav-list
+              %li.nav-header
+                = link_to "Tournament Updates", "http://www.reunionpong.com/forums/forums/tournament-updates"
+            %ul.nav.nav-list
+              %li.nav-header
+                = link_to "Discussion Area", forem.root_path
             - if current_user.forem_admin?
               %ul.nav.nav-list
                 %li.nav-header
