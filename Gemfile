@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 gem 'pg'
 
+gem "aws-s3"
+gem "aws-sdk"
 gem 'bootstrap-sass', '2.0.3'
 gem 'cancan', '1.6.8'
 gem 'devise'
