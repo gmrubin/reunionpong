@@ -16,9 +16,12 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.new(params[:team])
-    @team.save
-    @team.add_user!(current_user)
-    flash[:alert] = "Awesome, you've got a partner"
+    if @team.save
+      @team.add_user!(current_user)
+      flash[:notice] = "Awesome, you've got a team."
+    else
+      flash[:alert] = "Team already taken or some other problem. Try harder."
+    end
     redirect_to @team
   end
 
