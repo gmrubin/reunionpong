@@ -3,6 +3,7 @@ class TeamsController < ApplicationController
   def index
     @teams = Team.all
     @posts = Forem::Post.last(5)
+    @partner = current_user.partner.name
   end
 
   def show
@@ -27,17 +28,18 @@ class TeamsController < ApplicationController
 
   def join
     @team = Team.find(params[:id])
-    current_user.update_attribute(:team_id, @team.id)
-    redirect_to @team
+    @team.add_user!(current_user)
+    flash[:notice] = "Awesome, you've got a team."
+    redirect_to teams_path
   end
 
   def leave
     @team = Team.find(params[:id])
     if @team.users.count > 1
-      current_user.update_attribute(:team_id, nil)
+      @team.remove_user!(current_user)
       redirect_to teams_path
     else
-      flash[:alert] = "Not so fast, you need to leave at least one player on this team."
+      flash[:alert] = "Finish what you started, you need to have at least one player on this team."
       redirect_to @team
     end
   end
