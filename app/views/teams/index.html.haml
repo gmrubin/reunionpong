@@ -9,7 +9,7 @@
                 - if current_user.on_team?
                   = "Welcome back, Team"
                   = link_to current_user.team.name, team_path(current_user.team)
-                  ="! We hope you and #{current_user.partner.name} are ready to battle it out in #{current_user.team.city}!"
+                  ="! We hope you and #{@partner} are ready to battle it out in #{current_user.team.city}!"
                 - else
                   = "Hey, #{current_user.name} looks like you are flying Han-style (solo). Find a team to join on the right or create a team"
                   =link_to("here.", new_team_path(@team))
@@ -21,7 +21,7 @@
             %ul
               - @posts.each do |post|
                 %li
-                  = link_to "#{post.topic.to_s.upcase}: #{post.text}", "/forums/forums/#{post.forum.name.downcase}"
+                  = link_to "#{post.topic.to_s.upcase}: #{post.text}", "/forums/forums/#{post.forum.name.downcase}/topics/#{post.topic}"
       %hr/
 
     .span4
