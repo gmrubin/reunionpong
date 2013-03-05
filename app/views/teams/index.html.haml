@@ -21,7 +21,7 @@
             %ul
               - @posts.each do |post|
                 %li
-                  = link_to "#{post.topic.to_s.upcase}: #{post.text}", "/forums/forums/#{post.forum.name.downcase}/topics/#{post.topic}"
+                  = link_to "#{post.topic.to_s.upcase}: #{post.text}", "/forums/forums/#{post.forum.name.downcase.parameterize}/topics/#{post.topic.to_s.parameterize}"
       %hr/
 
     .span4
