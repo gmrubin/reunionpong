@@ -81,4 +81,6 @@ Reunionpong::Application.configure do
   ActionMailer::Base.delivery_method = :smtp
   # ^^ ADDED FOR MAILGUN ^^
 
+  GA.tracker = "UA-39147290-1"
+  #GOOGLE ANALYTICS
 end
