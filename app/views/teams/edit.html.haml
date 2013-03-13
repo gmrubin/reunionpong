@@ -1,0 +1,7 @@
+= simple_form_for(@team) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :name, :required => true, :autofocus => true, label: "Team Name"
+    = f.input :city, collection: ['NYC', 'San Fran', 'Boston', 'DC', 'Other']
+  .form-actions
+    = f.button :submit, "Update"
