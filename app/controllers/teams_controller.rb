@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+  before_filter :correct_user, only: [:edit, :update]
 
   def index
     @teams = Team.all
@@ -13,6 +14,20 @@ class TeamsController < ApplicationController
   def new
     @team = Team.new()
     @users = User.solo.where('id != ?', current_user.id)
+  end
+
+  def edit
+    @team = Team.find(params[:id])
+  end
+
+  def update
+    @team = Team.find(params[:id])
+    if @team.update_attributes(params[:team])
+      flash[:notice] = "Successfully updated your Team"
+    else
+      flash[:alert] = "Error, sorry try again. Email reunionpong@gmail.com for help"
+    end
+    redirect_to @team
   end
 
   def create
@@ -44,4 +59,10 @@ class TeamsController < ApplicationController
     end
   end
 
+  private
+
+    def correct_user
+      @team = Team.find(params[:id])
+      redirect_to(root_path) unless current_user.team == @team
+    end
 end
