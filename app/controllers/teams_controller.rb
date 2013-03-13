@@ -2,7 +2,7 @@ class TeamsController < ApplicationController
   before_filter :correct_user, only: [:edit, :update]
 
   def index
-    @teams = Team.all
+    @teams = Team.all.sort_by {|t| t.users.count}
     @posts = Forem::Post.last(5)
     @partner = current_user.partner.name
   end
