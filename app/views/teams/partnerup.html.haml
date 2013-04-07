@@ -5,6 +5,11 @@
         .span8
           %h2
             Oh 8s currently without a team:
+          - unless current_user.on_team?
+            %h4
+              Once you've found someone you'd like to partner with
+              =link_to("click here to create a team", new_team_path(@team))
+
           - @soloists.each do |s|
             %li
               = s.name
