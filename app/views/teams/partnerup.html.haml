@@ -1,0 +1,10 @@
+.container
+  .row
+    .span8
+      .row
+        .span8
+          %h2
+            Oh 8s currently without a team:
+          - @soloists.each do |s|
+            %li
+              = s.name

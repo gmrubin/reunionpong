@@ -59,6 +59,10 @@ class TeamsController < ApplicationController
     end
   end
 
+  def partnerup
+    @soloists = User.where(team_id: nil)
+  end
+
   private
 
     def correct_user

@@ -41,6 +41,9 @@
                 = link_to "Tournament Updates", "http://www.reunionpong.com/forums/forums/tournament-updates"
             %ul.nav.nav-list
               %li.nav-header
+                = link_to "Find a Partner", "/partnerup"
+            %ul.nav.nav-list
+              %li.nav-header
                 = link_to "Discussion Area", forem.root_path
             - if current_user.forem_admin?
               %ul.nav.nav-list
