@@ -20,6 +20,7 @@ Reunionpong::Application.routes.draw do
 
   match "tos" => 'public#tos'
   match "partnerup" => 'teams#partnerup'
+  match "nyc" => 'public#nyc'
 
   root :to => 'public#index'
 end

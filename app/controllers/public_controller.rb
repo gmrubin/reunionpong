@@ -6,4 +6,7 @@ class PublicController < ApplicationController
   def tos
 
   end
+
+  def nyc
+  end
 end
