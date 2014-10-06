@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :handle, :accept
 
-  before_validation :whitelisted?, on: :create
+  # before_validation :whitelisted?, on: :create
 
   before_validation :accept, acceptance: true, on: :create
 
