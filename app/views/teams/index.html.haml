@@ -9,7 +9,7 @@
                 - if current_user.on_team?
                   = "Welcome back, Team"
                   = link_to current_user.team.name, team_path(current_user.team)
-                  ="! We hope you and #{@partner} are ready to battle it out in #{current_user.team.city}!"
+                  ="! We hope you and #{@partner} are ready to battle it out!"
                 - else
                   = "Hey, #{current_user.name} looks like you are flying Han-style (solo). Find a team to join on the right or create a team"
                   =link_to("here.", new_team_path(@team))
