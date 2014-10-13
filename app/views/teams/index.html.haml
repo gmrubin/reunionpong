@@ -34,10 +34,10 @@
                 %li
                   %a{:href => "#{team_path(t)}"}
                     %i.icon-lock
-                    #{t.name} (#{t.city}): #{t.partners}
+                    #{t.name}: #{t.partners}
               - else
                 %li
                   %a{:href => "#{team_path(t)}"}
-                    #{t.name} (#{t.city}): #{t.partners}
+                    #{t.name}: #{t.partners}
                     %i.icon-plus
                     ?
