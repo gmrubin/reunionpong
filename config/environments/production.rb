@@ -62,7 +62,7 @@ Reunionpong::Application.configure do
   config.active_support.deprecation = :notify
 
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'reunionpong.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'reunionpong.com' }
   # Setup for production - deliveries, no errors raised
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
@@ -75,7 +75,7 @@ Reunionpong::Application.configure do
     :address        => ENV['MAILGUN_SMTP_SERVER'],
     :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
     :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => 'reunionpong.herokuapp.com',
+    :domain         => 'reunionpong.com',
     :authentication => :plain,
   }
   ActionMailer::Base.delivery_method = :smtp
